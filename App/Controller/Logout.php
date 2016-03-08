@@ -6,9 +6,6 @@ namespace App\Controller;
 
 use App\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Tracy\Debugger;
 
 class Logout extends Controller
 {
