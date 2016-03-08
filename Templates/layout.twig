@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Brian</title>
+
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">
+
+        <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="/node_modules/tether/dist/js/tether.min.js"></script>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+        <div id="Wrapper" class="container">
+            <div id="TopBar" class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-light bg-faded">
+                        <a class="navbar-brand" href="/">Brian</a>
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/">
+                                    <i class="fa fa-home"></i>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/apps">
+                                    <i class="fa fa-sitemap"></i>
+                                    Aplikace
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/settings">
+                                    <i class="fa fa-cog"></i>
+                                    Nastavení
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/users">
+                                    <i class="fa fa-user"></i>
+                                    Uživatelé
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/roles">
+                                    <i class="fa fa-user-secret"></i>
+                                    Role
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="pull-xs-right">
+                            <a href="/logout" class="btn btn-secondary">
+                                <i class="fa fa-power-off"></i>
+                                odhlásit se
+                            </a>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+            <div class="row" id="Content">
+                {% block Content %}
+                    layout
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>

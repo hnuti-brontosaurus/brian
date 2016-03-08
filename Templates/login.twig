@@ -1,0 +1,44 @@
+{% extends 'layout.twig' %}
+
+{% block Content %}
+
+    <div class="col-md-6 col-md-offset-3">
+
+        {% if FlashBag.has('danger') %}
+            {% for flash in FlashBag.get('danger')  %}
+                <p class="alert alert-danger">
+                    {{ flash }}
+                </p>
+            {% endfor %}
+        {% endif %}
+
+        {% if FlashBag.has('success') %}
+            {% for flash in FlashBag.get('success')  %}
+                <p class="alert alert-success">
+                    {{ flash }}
+                </p>
+            {% endfor %}
+        {% endif %}
+
+        <form action="/login" method="post">
+            <fieldset class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="Password">Heslo</label>
+                <input type="password" class="form-control" id="Password" name="Password" placeholder="***">
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="OTP">OTP číslo <span class="text-muted">pokud máš</span></label>
+                <input type="text" class="form-control" id="OTP" name="OTP" placeholder="123456">
+            </fieldset>
+            <fieldset class="form-group">
+                <input type="submit" value="Přihlásit se" class="btn btn-primary pull-right">
+            </fieldset>
+
+        </form>
+    </div>
+
+{% endblock %}
