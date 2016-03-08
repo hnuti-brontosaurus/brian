@@ -28,7 +28,7 @@ class User
 
         $this->session = $request->getSession();
 
-        //TODO: kontrola vypršení session
+        // kontrola vypršení session
 
         $sessionData = $this->session->get('brianUser');
 
@@ -89,20 +89,15 @@ class User
     protected function loadFromSession($sessionData)
     {
 
-        $oldLastAction = new \DateTimeImmutable($sessionData['lastAction']);
         $now = new \DateTimeImmutable();
-
-
 
         $this->name = $sessionData['name'];
         $this->id = $sessionData['id'];
         $this->email = $sessionData['email'];
 
-        if ($this->id != null) {
+        if ($this->id !== null) {
             $this->isLoggedIn = true;
         }
-
-
 
         $this->lastAction = $now->format(\DATE_ISO8601);
 
@@ -117,7 +112,4 @@ class User
             'lastAction' => $this->lastAction
         ]);
     }
-
-
-
 }

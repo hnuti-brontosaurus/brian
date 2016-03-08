@@ -6,9 +6,7 @@ namespace App\Controller;
 
 use App\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Tracy\Debugger;
 
 class Login extends Controller
 {
@@ -41,12 +39,12 @@ class Login extends Controller
         $password = $this->request->get('Password');
         $otp = $this->request->get('Otp');
 
-        if ($email == null || $password == null) {
+        if ($email === null || $password === null) {
             $this->request->getSession()->getFlashBag()->add('danger', 'Email a heslo jsou povinné.');
             return new RedirectResponse('/login');
         }
 
-        if ($this->request->getUser()->checkPassword($email, $password, $otp) == true) {
+        if ($this->request->getUser()->checkPassword($email, $password, $otp) === true) {
             return new RedirectResponse('/');
         } else {
             $this->request->getSession()->getFlashBag()->add('danger', 'Email nebo heslo nesedí.');

@@ -5,7 +5,6 @@ namespace App\Controller;
 
 
 use App\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class Account extends Controller
