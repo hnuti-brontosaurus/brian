@@ -28,11 +28,7 @@ class User
 
         $this->session = $request->getSession();
 
-        // kontrola vypršení session
-
         $sessionData = $this->session->get('brianUser');
-
-        Debugger::barDump($this->session->get('brianUser'), 'session in _construct');
 
         if ($sessionData !== null) {
             $this->loadFromSession($sessionData);
