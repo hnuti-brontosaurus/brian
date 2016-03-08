@@ -6,6 +6,7 @@ use App\Utils\Env;
 use App\User;
 
 use App\Request;
+use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 use Symfony\Component\Routing\RequestContext;
@@ -39,7 +40,10 @@ if ($config->get('env.showDebbuger')) {
 
 /** @var App\Request $request */
 $request = Request::createFromGlobals();
-$request->setSession(new Session());
+
+$sessionStorage = new NativeSessionStorage([ 'cookie_lifetime' => 60 * 15]);
+
+$request->setSession(new Session($sessionStorage));
 
 $user = new User($request);
 
